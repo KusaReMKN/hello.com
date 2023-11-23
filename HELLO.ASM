@@ -1,0 +1,18 @@
+	NAME	HELLO
+	TITLE	HELLO.ASM -- Greetings to the world
+
+CODE	SEGMENT
+	ORG	100H
+	ASSUME	CS:CODE, DS:CODE, ES:CODE, SS:CODE
+
+START:
+	MOV	AH, 09H
+	MOV	DX, offset MESG
+	INT	21H
+	MOV	AX, 4C00H
+	INT	21H
+MESG:
+	DB	'hello, world!', 0DH, 0AH, '$'
+CODE	ENDS
+	END	START
+
